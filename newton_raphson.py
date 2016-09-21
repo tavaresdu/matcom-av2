@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
+import sys
 
-def main():
-    f = [-7.0, 22.0, -2.0] # f(x)
-    ix = 1 # Ponto X inicial
-
-    x = float(ix)
+def main(f, x):
     fd = derivada(f)
 
     is_not_precise = True
@@ -18,8 +15,7 @@ def main():
             is_not_precise = False
         else:
             x = xr
-
-        print xr
+            print xr
 
 def derivada(f):
     g = len(f) - 1 # Grau da equação
@@ -55,4 +51,6 @@ def x_reta(f, y):
     return xr
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv[1:]
+    x = float(args.pop())
+    main([float(arg) for arg in args], x)
