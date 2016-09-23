@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import sys
 
 def main(f, x):
     fd = derivada(f)
@@ -51,6 +50,9 @@ def x_reta(f, y):
     return xr
 
 if __name__ == '__main__':
-    args = sys.argv[1:]
-    x = float(args.pop())
-    main([float(arg) for arg in args], x)
+    fl = open('input-nr.txt', 'r')
+    f = [float(t) for t in fl.readline().split(' ')]
+    x = float(fl.readline())
+    fl.close()
+
+    main(f, x)
